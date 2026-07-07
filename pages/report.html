@@ -53,14 +53,7 @@
         box-shadow:0 8px 20px rgba(0,0,0,.1);
         ">
 
-        <img
-            id="roadImage"
-            style="
-            width:100%;
-            height:500px;
-            object-fit:cover;
-            border-radius:15px;
-            ">
+        <div id="imageContainer"></div> 
 
         <br><br>
 
@@ -120,34 +113,62 @@
         const report = reports.find(r => r.id === id);
 
         if(report)
-        {
-            document.getElementById("location").innerHTML = report.location;
+{
+    document.getElementById("location").innerHTML = report.location;
 
-            document.getElementById("date").innerHTML =
-            "Reported on : " + report.date;
+    document.getElementById("date").innerHTML =
+    "Reported on : " + report.date;
 
-            document.getElementById("roadImage").src = report.image;
+    const imageContainer =
+    document.getElementById("imageContainer");
 
-            document.getElementById("description").innerHTML =
-            report.description;
+    if(report.status === "Resolved")
+    {
+        imageContainer.innerHTML = `
+            <h2>Before Repair</h2>
 
-            document.getElementById("status").innerHTML =
-            report.status;
+            <img
+                src="${report.beforeImage}"
+                style="width:100%;height:420px;object-fit:cover;border-radius:15px;">
 
-            const severity =
-            document.getElementById("severity");
+            <br><br>
 
-            severity.innerHTML = report.severity;
+            <h2>After Repair</h2>
 
-            severity.classList.add(report.severity.toLowerCase());
+            <img
+                src="${report.afterImage}"
+                style="width:100%;height:420px;object-fit:cover;border-radius:15px;">
+        `;
+    }
+    else
+    {
+        imageContainer.innerHTML = `
+            <img
+                src="${report.image}"
+                style="width:100%;height:500px;object-fit:cover;border-radius:15px;">
+        `;
+    }
 
-            document.getElementById("map").src =
-            "https://maps.google.com/maps?q="
-            + report.lat +
-            "," +
-            report.lng +
-            "&z=17&output=embed";
-        }
+    document.getElementById("description").innerHTML =
+    report.description;
+
+    document.getElementById("status").innerHTML =
+    report.status;
+
+    const severity =
+    document.getElementById("severity");
+
+    severity.innerHTML = report.severity;
+
+    severity.classList.add(report.severity.toLowerCase());
+
+    document.getElementById("map").src =
+    "https://maps.google.com/maps?q="
+    + report.lat +
+    "," +
+    report.lng +
+    "&z=17&output=embed";
+}
 
     </script>
 

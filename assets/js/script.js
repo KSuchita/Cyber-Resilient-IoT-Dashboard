@@ -26,7 +26,23 @@ function loadReports(data)
 
         card.innerHTML =
         `
-        <img src="${report.image}" alt="Road Damage">
+        ${
+    report.status === "Resolved"
+    ?
+    `
+    <div class="compare-images">
+
+        <img src="${report.beforeImage}">
+
+        <img src="${report.afterImage}">
+
+    </div>
+    `
+    :
+    `
+    <img src="${report.image}">
+    `
+}
 
         <div class="report-content">
 
@@ -35,7 +51,11 @@ function loadReports(data)
             <p><i class="fa-solid fa-location-dot"></i> ${report.location}</p>
 
             <p><i class="fa-solid fa-calendar"></i> ${report.date}</p>
-
+            <p>
+                <i class="fa-solid fa-circle"></i>
+                Status :
+                ${report.status}
+            </p>
             <span class="badge ${severityClass}">
                 ${report.severity}
             </span>
@@ -55,7 +75,14 @@ function loadReports(data)
             hoverCard.style.left = e.pageX + 20 + "px";
             hoverCard.style.top = e.pageY - 40 + "px";
 
-            hoverImage.src = report.image;
+             if(report.status === "Resolved")
+                {
+                    hoverImage.src = report.afterImage;
+                }
+            else
+                {
+                    hoverImage.src = report.image;
+                }
             hoverLocation.innerHTML = report.location;
             hoverSeverity.innerHTML = "<strong>Severity:</strong> " + report.severity;
             hoverDescription.innerHTML = report.description;

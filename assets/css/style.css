@@ -565,3 +565,35 @@ body::-webkit-scrollbar-thumb:hover
         text-align: center;
     }
 }
+.compare-images
+{
+    display: flex;
+}
+
+.compare-images img
+{
+    width: 50%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.compare-images img:first-child
+{
+    border-right: 3px solid white;
+}
+
+.status-resolved
+{
+    background: #43a047;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.status-pending
+{
+    background: #e53935;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+}

@@ -37,26 +37,28 @@ const reports =
     },
 
     {
-        id: 4,
-        image: "assets/images/road4.jpg",
-        location: "Near Oakridge International School",
-        severity: "Low",
-        description: "Minor pothole detected. Recommended for preventive maintenance before monsoon.",
-        date: "04 Jul 2026",
-        status: "Resolved",
-        lat: 17.5514,
-        lng: 78.3849
-    },
+    id: 4,
+    beforeImage: "assets/images/road4_before.jpg",
+    afterImage: "assets/images/road4_after.jpg",
+    location: "Near Oakridge International School",
+    severity: "Low",
+    description: "Minor pothole repaired successfully under municipal maintenance.",
+    date: "04 Jul 2026",
+    status: "Resolved",
+    lat: 17.5514,
+    lng: 78.3849
+},
 
-    {
-        id: 5,
-        image: "assets/images/road5.jpg",
-        location: "Bachupally Bus Stop",
-        severity: "Critical",
-        description: "Large damaged section of road creating safety hazards for buses and emergency vehicles.",
-        date: "07 Jul 2026",
-        status: "Pending",
-        lat: 17.5471,
-        lng: 78.3805
-    }
+{
+    id: 5,
+    beforeImage: "assets/images/road5_before.jpg",
+    afterImage: "assets/images/road5_after.jpg",
+    location: "Bachupally Bus Stop",
+    severity: "High",
+    description: "Road resurfacing completed. Traffic movement restored.",
+    date: "02 Jul 2026",
+    status: "Resolved",
+    lat: 17.5471,
+    lng: 78.3805
+}
 ];
