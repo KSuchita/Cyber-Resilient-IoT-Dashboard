@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Road Damage Report</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Cyber Resilient IoT Platform
+
+        </div>
+
+    </nav>
+
+    <section class="hero">
+
+        <div>
+
+            <h1 id="location"></h1>
+
+            <p id="date"></p>
+
+        </div>
+
+    </section>
+
+    <section
+        style="
+        max-width:1200px;
+        margin:30px auto;
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 8px 20px rgba(0,0,0,.1);
+        ">
+
+        <img
+            id="roadImage"
+            style="
+            width:100%;
+            height:500px;
+            object-fit:cover;
+            border-radius:15px;
+            ">
+
+        <br><br>
+
+        <h2>Description</h2>
+
+        <p id="description"></p>
+
+        <br>
+
+        <h2>Severity</h2>
+
+        <span
+            id="severity"
+            class="badge">
+        </span>
+
+        <br><br>
+
+        <h2>Status</h2>
+
+        <p id="status"></p>
+
+        <br>
+
+        <h2>Location Map</h2>
+
+        <iframe
+            id="map"
+            width="100%"
+            height="450"
+            style="border:0;border-radius:15px;"
+            loading="lazy">
+        </iframe>
+
+        <br><br>
+
+        <a
+            href="../index.html"
+            class="view-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Dashboard
+
+        </a>
+
+    </section>
+
+    <script src="../data/reports.js"></script>
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+
+        const id = Number(params.get("id"));
+
+        const report = reports.find(r => r.id === id);
+
+        if(report)
+        {
+            document.getElementById("location").innerHTML = report.location;
+
+            document.getElementById("date").innerHTML =
+            "Reported on : " + report.date;
+
+            document.getElementById("roadImage").src = report.image;
+
+            document.getElementById("description").innerHTML =
+            report.description;
+
+            document.getElementById("status").innerHTML =
+            report.status;
+
+            const severity =
+            document.getElementById("severity");
+
+            severity.innerHTML = report.severity;
+
+            severity.classList.add(report.severity.toLowerCase());
+
+            document.getElementById("map").src =
+            "https://maps.google.com/maps?q="
+            + report.lat +
+            "," +
+            report.lng +
+            "&z=17&output=embed";
+        }
+
+    </script>
+
+</body>
+
+</html>
