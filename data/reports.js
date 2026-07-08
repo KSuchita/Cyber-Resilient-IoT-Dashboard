@@ -5,9 +5,11 @@ const reports =
         image: "assets/images/road1.jpg",
         location: "Bachupally X Road",
         severity: "Critical",
-        description: "Large pothole causing heavy traffic congestion and posing a serious risk to two-wheelers and cars.",
-        date: "07 Jul 2026",
         status: "Pending",
+        date: "08 Jul 2026",
+        description: "Large pothole detected near the junction causing heavy traffic congestion and safety risks for two-wheelers.",
+        officer: "Awaiting Assignment",
+        completion: "-",
         lat: 17.5443,
         lng: 78.3821
     },
@@ -15,13 +17,15 @@ const reports =
     {
         id: 2,
         image: "assets/images/road2.jpg",
-        location: "Near VNR VJIET College",
+        location: "Near VNR VJIET",
         severity: "High",
-        description: "Deep road crack observed after continuous rainfall. Repair is required to prevent further damage.",
-        date: "06 Jul 2026",
         status: "Pending",
-        lat: 17.5419,
-        lng: 78.3864
+        date: "08 Jul 2026",
+        description: "Deep longitudinal road crack observed after rainfall. Immediate maintenance recommended.",
+        officer: "Awaiting Assignment",
+        completion: "-",
+        lat: 17.5418,
+        lng: 78.3868
     },
 
     {
@@ -29,36 +33,114 @@ const reports =
         image: "assets/images/road3.jpg",
         location: "Bachupally Main Road",
         severity: "Medium",
-        description: "Surface damage and uneven road affecting traffic flow during peak hours.",
-        date: "05 Jul 2026",
         status: "Pending",
-        lat: 17.5488,
-        lng: 78.3892
+        date: "07 Jul 2026",
+        description: "Uneven road surface affecting traffic flow during peak hours.",
+        officer: "Awaiting Assignment",
+        completion: "-",
+        lat: 17.5485,
+        lng: 78.3890
     },
 
     {
-    id: 4,
-    beforeImage: "assets/images/road4_before.jpg",
-    afterImage: "assets/images/road4_after.jpg",
-    location: "Near Oakridge International School",
-    severity: "Low",
-    description: "Minor pothole repaired successfully under municipal maintenance.",
-    date: "04 Jul 2026",
-    status: "Resolved",
-    lat: 17.5514,
-    lng: 78.3849
-},
+        id: 4,
+        image: "assets/images/road6.jpg",
+        location: "Pragathi Nagar Road",
+        severity: "Low",
+        status: "Pending",
+        date: "07 Jul 2026",
+        description: "Minor pothole identified through periodic inspection.",
+        officer: "Awaiting Assignment",
+        completion: "-",
+        lat: 17.5514,
+        lng: 78.3818
+    },
 
-{
-    id: 5,
-    beforeImage: "assets/images/road5_before.jpg",
-    afterImage: "assets/images/road5_after.jpg",
-    location: "Bachupally Bus Stop",
-    severity: "High",
-    description: "Road resurfacing completed. Traffic movement restored.",
-    date: "02 Jul 2026",
-    status: "Resolved",
-    lat: 17.5471,
-    lng: 78.3805
-}
+    {
+        id: 5,
+        image: "assets/images/road7.jpg",
+        location: "Near Bachupally Bus Stop",
+        severity: "Critical",
+        status: "Pending",
+        date: "06 Jul 2026",
+        description: "Road collapse affecting one lane. Temporary barricades placed.",
+        officer: "Awaiting Assignment",
+        completion: "-",
+        lat: 17.5472,
+        lng: 78.3805
+    },
+
+    {
+        id: 6,
+        image: "assets/images/road1.jpg",
+        location: "Bachupally Market Road",
+        severity: "High",
+        status: "Pending",
+        date: "05 Jul 2026",
+        description: "Multiple potholes detected near the market entrance.",
+        officer: "Awaiting Assignment",
+        completion: "-",
+        lat: 17.5461,
+        lng: 78.3840
+    },
+
+    {
+        id: 7,
+        beforeImage: "assets/images/road4_before.jpg",
+        afterImage: "assets/images/road4_after.jpg",
+        location: "Oakridge School Road",
+        severity: "Low",
+        status: "Resolved",
+        date: "03 Jul 2026",
+        description: "Road repaired successfully after pothole filling and resurfacing.",
+        officer: "Municipal Team A",
+        completion: "05 Jul 2026",
+        lat: 17.5517,
+        lng: 78.3856
+    },
+
+    {
+        id: 8,
+        beforeImage: "assets/images/road5_before.jpg",
+        afterImage: "assets/images/road5_after.jpg",
+        location: "Bachupally Circle",
+        severity: "Medium",
+        status: "Resolved",
+        date: "02 Jul 2026",
+        description: "Damaged asphalt resurfaced successfully.",
+        officer: "Municipal Team B",
+        completion: "04 Jul 2026",
+        lat: 17.5491,
+        lng: 78.3827
+    },
+
+    {
+        id: 9,
+        beforeImage: "assets/images/road8_before.jpg",
+        afterImage: "assets/images/road8_after.jpg",
+        location: "Near Delhi Public School",
+        severity: "High",
+        status: "Resolved",
+        date: "30 Jun 2026",
+        description: "Road crack repaired and surface restored.",
+        officer: "Municipal Team C",
+        completion: "02 Jul 2026",
+        lat: 17.5530,
+        lng: 78.3870
+    },
+
+    {
+        id: 10,
+        beforeImage: "assets/images/road5_before.jpg",
+        afterImage: "assets/images/road5_after.jpg",
+        location: "Bachupally Lake Road",
+        severity: "Critical",
+        status: "Resolved",
+        date: "28 Jun 2026",
+        description: "Large damaged road section completely reconstructed.",
+        officer: "Municipal Team D",
+        completion: "01 Jul 2026",
+        lat: 17.5454,
+        lng: 78.3902
+    }
 ];
