@@ -1,78 +1,157 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Cyber Resilient IoT Platform</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+          href="assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
+
 <body>
 
     <nav class="navbar">
+
         <div class="logo">
+
             <i class="fa-solid fa-shield-halved"></i>
-            Cyber Resilient IoT Platform
+
+            <div>
+
+                <h2>Cyber Resilient IoT Platform</h2>
+
+                <small>Urban Road Damage Monitoring</small>
+
+            </div>
+
         </div>
+
         <ul>
+
             <li class="active">
+
                 <i class="fa-solid fa-road"></i>
+
                 Road Damage
+
             </li>
+
             <li>
+
                 <i class="fa-solid fa-faucet-drip"></i>
+
                 Water Leakage
+
             </li>
+
             <li>
-                <i class="fa-solid fa-chart-line"></i>
+
+                <i class="fa-solid fa-chart-column"></i>
+
                 Analytics
+
             </li>
+
             <li>
-                <i class="fa-solid fa-gear"></i>
-                Settings
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Bachupally Pilot
+
             </li>
+
         </ul>
+
     </nav>
 
     <section class="hero">
+
         <div>
-            <h1>Road Damage Monitoring Dashboard</h1>
+
+            <h1>Real-Time Road Damage Monitoring Dashboard</h1>
+
             <p>
+
                 Pilot Deployment Area :
                 <strong>Bachupally, Hyderabad</strong>
+
             </p>
+
+            <p>
+
+                AI + IoT based monitoring for potholes and road surface anomalies.
+
+            </p>
+
         </div>
+
         <div class="live-box">
+
             <span class="live-dot"></span>
-            LIVE MONITORING
+
+            LIVE
+
         </div>
+
     </section>
 
     <section class="stats">
+
         <div class="card">
-            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <i class="fa-solid fa-file-circle-exclamation"></i>
+
             <h2 id="totalReports">0</h2>
+
             <p>Total Reports</p>
+
         </div>
+
         <div class="card">
+
             <i class="fa-solid fa-circle-exclamation"></i>
+
             <h2 id="criticalReports">0</h2>
+
             <p>Critical</p>
+
         </div>
+
         <div class="card">
-            <i class="fa-solid fa-clock"></i>
+
+            <i class="fa-solid fa-hourglass-half"></i>
+
             <h2 id="pendingReports">0</h2>
+
             <p>Pending</p>
+
         </div>
+
         <div class="card">
+
             <i class="fa-solid fa-circle-check"></i>
-            <h2 id="resolvedReports">1</h2>
+
+            <h2 id="resolvedReports">0</h2>
+
             <p>Resolved</p>
+
         </div>
+
     </section>
 
     <section class="search-section">
+
         <input
             type="text"
             id="searchInput"
@@ -81,62 +160,106 @@
     </section>
 
     <section class="alert-box">
+
         <i class="fa-solid fa-bell"></i>
+
         <span id="liveAlert">
+
             Monitoring Bachupally streets...
+
         </span>
+
     </section>
 
     <section class="heading">
+
         <h2>
+
             <i class="fa-solid fa-road"></i>
+
             Road Damage Reports
+
         </h2>
+
     </section>
 
     <section
         class="report-grid"
         id="reportContainer">
+
     </section>
 
     <div
         id="hoverCard"
         class="hover-card">
+
         <img
             id="hoverImage"
             src=""
-            alt="">
+            alt="Road">
+
         <h3 id="hoverLocation"></h3>
+
         <p id="hoverSeverity"></p>
+
+        <p id="hoverStatus"></p>
+
         <p id="hoverDescription"></p>
+
     </div>
 
     <footer>
+
         <div>
+
             <h3>
+
                 Cyber Resilient IoT Platform
+
             </h3>
+
             <p>
-                Pilot Project
+
+                Major Project Prototype
+
             </p>
+
         </div>
+
         <div>
+
             <p>
+
                 Deployment Area :
+
                 <strong>Bachupally</strong>
+
             </p>
+
         </div>
+
         <div>
+
             <p>
+
                 Last Updated :
+
                 <span id="lastUpdated">
+
                     --
+
                 </span>
+
             </p>
+
         </div>
+
     </footer>
 
     <script src="data/reports.js"></script>
+
     <script src="assets/js/script.js"></script>
+
 </body>
+
 </html>
