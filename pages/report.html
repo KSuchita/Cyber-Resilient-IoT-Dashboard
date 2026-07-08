@@ -6,11 +6,13 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Road Damage Report</title>
 
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet"
+          href="../assets/css/style.css">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -25,7 +27,13 @@
 
             <i class="fa-solid fa-shield-halved"></i>
 
-            Cyber Resilient IoT Platform
+            <div>
+
+                <h2>Cyber Resilient IoT Platform</h2>
+
+                <small>Road Damage Monitoring</small>
+
+            </div>
 
         </div>
 
@@ -47,15 +55,15 @@
         style="
         max-width:1200px;
         margin:30px auto;
-        background:white;
-        padding:30px;
+        background:#fff;
         border-radius:20px;
+        padding:30px;
         box-shadow:0 8px 20px rgba(0,0,0,.1);
         ">
 
-        <div id="imageContainer"></div> 
+        <div id="imageContainer"></div>
 
-        <br><br>
+        <br>
 
         <h2>Description</h2>
 
@@ -78,7 +86,23 @@
 
         <br>
 
-        <h2>Location Map</h2>
+        <h2>Assigned Officer</h2>
+
+        <p id="officer"></p>
+
+        <br>
+
+        <div id="completionSection">
+
+            <h2>Completion Date</h2>
+
+            <p id="completion"></p>
+
+            <br>
+
+        </div>
+
+        <h2>Location</h2>
 
         <iframe
             id="map"
@@ -113,62 +137,85 @@
         const report = reports.find(r => r.id === id);
 
         if(report)
-{
-    document.getElementById("location").innerHTML = report.location;
+        {
+            document.getElementById("location").innerHTML =
+            report.location;
 
-    document.getElementById("date").innerHTML =
-    "Reported on : " + report.date;
+            document.getElementById("date").innerHTML =
+            "Reported On : " + report.date;
 
-    const imageContainer =
-    document.getElementById("imageContainer");
+            document.getElementById("description").innerHTML =
+            report.description;
 
-    if(report.status === "Resolved")
-    {
-        imageContainer.innerHTML = `
-            <h2>Before Repair</h2>
+            document.getElementById("status").innerHTML =
+            report.status;
 
-            <img
-                src="${report.beforeImage}"
-                style="width:100%;height:420px;object-fit:cover;border-radius:15px;">
+            document.getElementById("officer").innerHTML =
+            report.officer;
 
-            <br><br>
+            const severity =
+            document.getElementById("severity");
 
-            <h2>After Repair</h2>
+            severity.innerHTML =
+            report.severity;
 
-            <img
-                src="${report.afterImage}"
-                style="width:100%;height:420px;object-fit:cover;border-radius:15px;">
-        `;
-    }
-    else
-    {
-        imageContainer.innerHTML = `
-            <img
-                src="${report.image}"
-                style="width:100%;height:500px;object-fit:cover;border-radius:15px;">
-        `;
-    }
+            severity.classList.add(
+            report.severity.toLowerCase());
 
-    document.getElementById("description").innerHTML =
-    report.description;
+            if(report.status === "Resolved")
+            {
+                document.getElementById("completion").innerHTML =
+                report.completion;
 
-    document.getElementById("status").innerHTML =
-    report.status;
+                document.getElementById("imageContainer").innerHTML =
+                `
+                <h2>Before Repair</h2>
 
-    const severity =
-    document.getElementById("severity");
+                <img
+                    src="../${report.beforeImage}"
+                    style="
+                    width:100%;
+                    height:420px;
+                    object-fit:cover;
+                    border-radius:15px;">
 
-    severity.innerHTML = report.severity;
+                <br><br>
 
-    severity.classList.add(report.severity.toLowerCase());
+                <h2>After Repair</h2>
 
-    document.getElementById("map").src =
-    "https://maps.google.com/maps?q="
-    + report.lat +
-    "," +
-    report.lng +
-    "&z=17&output=embed";
-}
+                <img
+                    src="../${report.afterImage}"
+                    style="
+                    width:100%;
+                    height:420px;
+                    object-fit:cover;
+                    border-radius:15px;">
+                `;
+            }
+            else
+            {
+                document.getElementById("completionSection").style.display =
+                "none";
+
+                document.getElementById("imageContainer").innerHTML =
+                `
+                <img
+                    src="../${report.image}"
+                    style="
+                    width:100%;
+                    height:500px;
+                    object-fit:cover;
+                    border-radius:15px;">
+                `;
+            }
+
+            document.getElementById("map").src =
+            "https://maps.google.com/maps?q=" +
+            report.lat +
+            "," +
+            report.lng +
+            "&z=17&output=embed";
+        }
 
     </script>
 
