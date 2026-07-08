@@ -16,7 +16,7 @@ const reports =
 
     {
         id: 2,
-        image: "assets/images/road2.png",
+        image: "assets/images/road2.jpeg",
         location: "Near VNR VJIET",
         severity: "High",
         status: "Pending",
@@ -44,34 +44,6 @@ const reports =
 
     {
         id: 4,
-        image: "assets/images/road6.png",
-        location: "Pragathi Nagar Road",
-        severity: "Low",
-        status: "Pending",
-        date: "07 Jul 2026",
-        description: "Minor pothole identified through periodic inspection.",
-        officer: "Awaiting Assignment",
-        completion: "-",
-        lat: 17.5514,
-        lng: 78.3818
-    },
-
-    {
-        id: 5,
-        image: "assets/images/road7.png",
-        location: "Near Bachupally Bus Stop",
-        severity: "Critical",
-        status: "Pending",
-        date: "06 Jul 2026",
-        description: "Road collapse affecting one lane. Temporary barricades placed.",
-        officer: "Awaiting Assignment",
-        completion: "-",
-        lat: 17.5472,
-        lng: 78.3805
-    },
-
-    {
-        id: 6,
         image: "assets/images/road1.png",
         location: "Bachupally Market Road",
         severity: "High",
@@ -85,7 +57,7 @@ const reports =
     },
 
     {
-        id: 7,
+        id: 5,
         beforeImage: "assets/images/road4_before.png",
         afterImage: "assets/images/road4_after.png",
         location: "Oakridge School Road",
@@ -100,7 +72,7 @@ const reports =
     },
 
     {
-        id: 8,
+        id: 6,
         beforeImage: "assets/images/road5_before.png",
         afterImage: "assets/images/road5_after.png",
         location: "Bachupally Circle",
@@ -114,33 +86,4 @@ const reports =
         lng: 78.3827
     },
 
-    {
-        id: 9,
-        beforeImage: "assets/images/road8_before.png",
-        afterImage: "assets/images/road8_after.png",
-        location: "Near Delhi Public School",
-        severity: "High",
-        status: "Resolved",
-        date: "30 Jun 2026",
-        description: "Road crack repaired and surface restored.",
-        officer: "Municipal Team C",
-        completion: "02 Jul 2026",
-        lat: 17.5530,
-        lng: 78.3870
-    },
-
-    {
-        id: 10,
-        beforeImage: "assets/images/road5_before.png",
-        afterImage: "assets/images/road5_after.png",
-        location: "Bachupally Lake Road",
-        severity: "Critical",
-        status: "Resolved",
-        date: "28 Jun 2026",
-        description: "Large damaged road section completely reconstructed.",
-        officer: "Municipal Team D",
-        completion: "01 Jul 2026",
-        lat: 17.5454,
-        lng: 78.3902
-    }
 ];
