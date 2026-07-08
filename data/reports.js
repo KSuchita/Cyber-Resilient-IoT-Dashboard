@@ -2,7 +2,7 @@ const reports =
 [
     {
         id: 1,
-        image: "assets/images/road1.jpg",
+        image: "assets/images/road1.png",
         location: "Bachupally X Road",
         severity: "Critical",
         status: "Pending",
@@ -16,7 +16,7 @@ const reports =
 
     {
         id: 2,
-        image: "assets/images/road2.jpg",
+        image: "assets/images/road2.png",
         location: "Near VNR VJIET",
         severity: "High",
         status: "Pending",
@@ -30,7 +30,7 @@ const reports =
 
     {
         id: 3,
-        image: "assets/images/road3.jpg",
+        image: "assets/images/road3.png",
         location: "Bachupally Main Road",
         severity: "Medium",
         status: "Pending",
@@ -44,7 +44,7 @@ const reports =
 
     {
         id: 4,
-        image: "assets/images/road6.jpg",
+        image: "assets/images/road6.png",
         location: "Pragathi Nagar Road",
         severity: "Low",
         status: "Pending",
@@ -58,7 +58,7 @@ const reports =
 
     {
         id: 5,
-        image: "assets/images/road7.jpg",
+        image: "assets/images/road7.png",
         location: "Near Bachupally Bus Stop",
         severity: "Critical",
         status: "Pending",
@@ -72,7 +72,7 @@ const reports =
 
     {
         id: 6,
-        image: "assets/images/road1.jpg",
+        image: "assets/images/road1.png",
         location: "Bachupally Market Road",
         severity: "High",
         status: "Pending",
@@ -86,8 +86,8 @@ const reports =
 
     {
         id: 7,
-        beforeImage: "assets/images/road4_before.jpg",
-        afterImage: "assets/images/road4_after.jpg",
+        beforeImage: "assets/images/road4_before.png",
+        afterImage: "assets/images/road4_after.png",
         location: "Oakridge School Road",
         severity: "Low",
         status: "Resolved",
@@ -101,8 +101,8 @@ const reports =
 
     {
         id: 8,
-        beforeImage: "assets/images/road5_before.jpg",
-        afterImage: "assets/images/road5_after.jpg",
+        beforeImage: "assets/images/road5_before.png",
+        afterImage: "assets/images/road5_after.png",
         location: "Bachupally Circle",
         severity: "Medium",
         status: "Resolved",
@@ -116,8 +116,8 @@ const reports =
 
     {
         id: 9,
-        beforeImage: "assets/images/road8_before.jpg",
-        afterImage: "assets/images/road8_after.jpg",
+        beforeImage: "assets/images/road8_before.png",
+        afterImage: "assets/images/road8_after.png",
         location: "Near Delhi Public School",
         severity: "High",
         status: "Resolved",
@@ -131,8 +131,8 @@ const reports =
 
     {
         id: 10,
-        beforeImage: "assets/images/road5_before.jpg",
-        afterImage: "assets/images/road5_after.jpg",
+        beforeImage: "assets/images/road5_before.png",
+        afterImage: "assets/images/road5_after.png",
         location: "Bachupally Lake Road",
         severity: "Critical",
         status: "Resolved",
