@@ -1,282 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Driven Cyber-Resilient IoT Platform</title>
-
-    <link rel="stylesheet"
-          href="assets/css/style.css">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-
 <body>
-
     <nav class="navbar">
-
         <div class="logo">
-
             <i class="fa-solid fa-shield-halved"></i>
-
             <div>
-
                 <h2>Cyber-Resilient IoT Platform</h2>
-
                 <small>Water Leakage Monitoring & Detection</small>
-
             </div>
-
         </div>
-
         <ul>
-
             <li class="active">
-
                 <i class="fa-solid fa-droplet"></i>
-
                 Water Leakage
-
             </li>
-
-            <li>
-
-                <i class="fa-solid fa-microchip"></i>
-
-                IoT Sensors
-
-            </li>
-
-            <li>
-
-                <i class="fa-solid fa-brain"></i>
-
-                AI Analytics
-
-            </li>
-
-            <li>
-
-                <i class="fa-solid fa-shield-virus"></i>
-
-                Cyber Security
-
-            </li>
-
-            <li>
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                Smart City
-
-            </li>
-
         </ul>
-
     </nav>
-
     <section class="hero">
-
         <div>
-
             <h1>
-
                 AI-Driven Cyber-Resilient IoT Platform
-
             </h1>
-
             <p>
-
                 <strong>Real-Time Water Leakage Monitoring and Detection System</strong>
-
             </p>
-
             <p>
-
                 Pilot Deployment Area :
                 <strong>Bachupally, Hyderabad</strong>
-
             </p>
-
             <p>
-
-                AI-powered leak prediction using IoT flow, pressure and water level sensors with secure real-time monitoring.
-
+                AI-powered leak prediction using IoT flow, pressure and water level sensors with secure real-time
+                monitoring.
             </p>
-
         </div>
-
         <div class="live-box">
-
             <span class="live-dot"></span>
-
             LIVE MONITORING
-
         </div>
-
     </section>
-
     <section class="stats">
-
         <div class="card">
-
             <i class="fa-solid fa-droplet"></i>
-
             <h2 id="totalReports">0</h2>
-
             <p>Total Leakages</p>
-
         </div>
-
         <div class="card">
-
             <i class="fa-solid fa-triangle-exclamation"></i>
-
             <h2 id="criticalReports">0</h2>
-
             <p>Critical Leakages</p>
-
         </div>
-
         <div class="card">
-
             <i class="fa-solid fa-wifi"></i>
-
             <h2 id="activeSensors">0</h2>
-
             <p>Active Sensors</p>
-
         </div>
-
         <div class="card">
-
             <i class="fa-solid fa-water"></i>
-
             <h2 id="waterSaved">0</h2>
-
             <p>Estimated Water Saved (L)</p>
-
         </div>
-
     </section>
-
     <section class="search-section">
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search by Zone, Sensor ID or Pipeline ID">
-
+        <input type="text" id="searchInput" placeholder="Search by Zone, Sensor ID or Pipeline ID">
     </section>
-
     <section class="alert-box">
-
         <i class="fa-solid fa-bell"></i>
-
         <span id="liveAlert">
-
             AI is continuously monitoring smart water pipelines...
-
         </span>
-
     </section>
-
     <section class="heading">
-
         <h2>
-
             <i class="fa-solid fa-droplet"></i>
-
             Water Leakage Reports
-
         </h2>
-
     </section>
-
-    <section
-        class="report-grid"
-        id="reportContainer">
-
+    <section class="report-grid" id="reportContainer">
     </section>
-
-    <div
-        id="hoverCard"
-        class="hover-card">
-
-        <img
-            id="hoverImage"
-            src=""
-            alt="Leakage">
-
+    <div id="hoverCard" class="hover-card">
+        <img id="hoverImage" src="" alt="Leakage">
         <h3 id="hoverLocation"></h3>
-
         <p id="hoverSeverity"></p>
-
         <p id="hoverStatus"></p>
-
         <p id="hoverDescription"></p>
-
     </div>
-
     <footer>
-
         <div>
-
             <h3>
-
                 AI-Driven Cyber-Resilient IoT Platform
-
             </h3>
-
             <p>
-
                 Real-Time Water Leakage Monitoring & Detection
-
             </p>
-
         </div>
-
         <div>
-
             <p>
-
                 Pilot Deployment :
-
                 <strong>Bachupally Smart City</strong>
-
             </p>
-
         </div>
-
         <div>
-
             <p>
-
                 Last Updated :
-
                 <span id="lastUpdated">
-
                     --
-
                 </span>
-
             </p>
-
         </div>
-
     </footer>
-
     <script src="data/reports.js"></script>
-
     <script src="assets/js/script.js"></script>
-
 </body>
-
 </html>

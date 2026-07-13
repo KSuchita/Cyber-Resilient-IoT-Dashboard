@@ -1,57 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Leakage Details</title>
-
-<link rel="stylesheet"
-href="../assets/css/style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leakage Details</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-
 <body>
-
-<nav class="navbar">
-
-<div class="logo">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-<div>
-
-<h2>Cyber-Resilient IoT Platform</h2>
-
-<small>Water Leakage Monitoring</small>
-
-</div>
-
-</div>
-
-</nav>
-
-<section class="hero">
-
-<div>
-
-<h1 id="zone"></h1>
-
-<p id="time"></p>
-
-</div>
-
-</section>
-
-<section
-style="
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+                <h2>Cyber-Resilient IoT Platform</h2>
+                <small>Water Leakage Monitoring</small>
+            </div>
+        </div>
+    </nav>
+    <section class="hero">
+        <div>
+            <h1 id="zone"></h1>
+            <p id="time"></p>
+        </div>
+    </section>
+    <section style="
 max-width:1100px;
 margin:30px auto;
 background:white;
@@ -59,164 +31,85 @@ padding:35px;
 border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,.1);
 ">
-
-<h2>Leakage Information</h2>
-
-<br>
-
-<p><strong>Pipeline ID :</strong> <span id="pipeline"></span></p>
-
-<br>
-
-<p><strong>Sensor ID :</strong> <span id="sensor"></span></p>
-
-<br>
-
-<p><strong>Severity :</strong>
-
-<span id="severity" class="badge"></span>
-
-</p>
-
-<br>
-
-<p><strong>Status :</strong>
-
-<span id="status"></span>
-
-</p>
-
-<br>
-
-<p><strong>Water Loss :</strong>
-
-<span id="loss"></span> L/min
-
-</p>
-
-<br>
-
-<p><strong>Flow Rate :</strong>
-
-<span id="flow"></span> L/min
-
-</p>
-
-<br>
-
-<p><strong>Pressure :</strong>
-
-<span id="pressure"></span> Bar
-
-</p>
-
-<br>
-
-<p><strong>Sensor Health :</strong>
-
-<span id="health"></span>
-
-</p>
-
-<br>
-
-<p><strong>Cyber Security :</strong>
-
-<span id="cyber"></span>
-
-</p>
-
-<br>
-
-<h2>AI Analysis</h2>
-
-<p id="description"></p>
-
-<br>
-
-<h2>Location</h2>
-
-<iframe
-id="map"
-width="100%"
-height="450"
-style="border:0;border-radius:15px;"
-loading="lazy">
-
-</iframe>
-
-<br><br>
-
-<a
-href="../index.html"
-class="view-btn">
-
-<i class="fa-solid fa-arrow-left"></i>
-
-Back to Dashboard
-
-</a>
-
-</section>
-
-<script src="../data/reports.js"></script>
-    
-<script>
-
-const params=new URLSearchParams(window.location.search);
-
-const id=Number(params.get("id"));
-
-const report=reports.find(r=>r.id===id);
-
-if(report)
-{
-
-document.getElementById("zone").innerHTML=report.zone;
-
-document.getElementById("time").innerHTML=
-"Detected : "+report.detectionTime;
-
-document.getElementById("pipeline").innerHTML=
-report.pipelineId;
-
-document.getElementById("sensor").innerHTML=
-report.sensorId;
-
-document.getElementById("status").innerHTML=
-report.status;
-
-document.getElementById("loss").innerHTML=
-report.waterLoss;
-
-document.getElementById("flow").innerHTML=
-report.flowRate;
-
-document.getElementById("pressure").innerHTML=
-report.pressure;
-
-document.getElementById("health").innerHTML=
-report.sensorHealth;
-
-document.getElementById("cyber").innerHTML=
-report.cyberStatus;
-
-document.getElementById("description").innerHTML=
-report.description;
-
-const severity=document.getElementById("severity");
-
-severity.innerHTML=report.severity;
-
-severity.classList.add(report.severity.toLowerCase());
-
-document.getElementById("map").src =
-`https://www.google.com/maps?q=${report.lat},${report.lng}&output=embed`;
-
-}
-
-</script>
-
+        <h2>Leakage Information</h2>
+        <br>
+        <p><strong>Pipeline ID :</strong> <span id="pipeline"></span></p>
+        <br>
+        <p><strong>Sensor ID :</strong> <span id="sensor"></span></p>
+        <br>
+        <p><strong>Severity :</strong>
+            <span id="severity" class="badge"></span>
+        </p>
+        <br>
+        <p><strong>Status :</strong>
+            <span id="status"></span>
+        </p>
+        <br>
+        <p><strong>Water Loss :</strong>
+            <span id="loss"></span> L/min
+        </p>
+        <br>
+        <p><strong>Flow Rate :</strong>
+            <span id="flow"></span> L/min
+        </p>
+        <br>
+        <p><strong>Pressure :</strong>
+            <span id="pressure"></span> Bar
+        </p>
+        <br>
+        <p><strong>Sensor Health :</strong>
+            <span id="health"></span>
+        </p>
+        <br>
+        <p><strong>Cyber Security :</strong>
+            <span id="cyber"></span>
+        </p>
+        <br>
+        <h2>AI Analysis</h2>
+        <p id="description"></p>
+        <br>
+        <h2>Location</h2>
+        <iframe id="map" width="100%" height="450" style="border:0;border-radius:15px;" loading="lazy">
+        </iframe>
+        <br><br>
+        <a href="../index.html" class="view-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Dashboard
+        </a>
+    </section>
+    <script src="../data/reports.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = Number(params.get("id"));
+        const report = reports.find(r => r.id === id);
+        if (report) {
+            document.getElementById("zone").innerHTML = report.zone;
+            document.getElementById("time").innerHTML =
+                "Detected : " + report.detectionTime;
+            document.getElementById("pipeline").innerHTML =
+                report.pipelineId;
+            document.getElementById("sensor").innerHTML =
+                report.sensorId;
+            document.getElementById("status").innerHTML =
+                report.status;
+            document.getElementById("loss").innerHTML =
+                report.waterLoss;
+            document.getElementById("flow").innerHTML =
+                report.flowRate;
+            document.getElementById("pressure").innerHTML =
+                report.pressure;
+            document.getElementById("health").innerHTML =
+                report.sensorHealth;
+            document.getElementById("cyber").innerHTML =
+                report.cyberStatus;
+            document.getElementById("description").innerHTML =
+                report.description;
+            const severity = document.getElementById("severity");
+            severity.innerHTML = report.severity;
+            severity.classList.add(report.severity.toLowerCase());
+            document.getElementById("map").src =
+                `https://www.google.com/maps?q=${report.lat},${report.lng}&output=embed`;
+        }
+    </script>
 </body>
-
 </html>
