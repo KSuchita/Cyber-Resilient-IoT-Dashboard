@@ -1,80 +1,79 @@
 const reportContainer = document.getElementById("reportContainer");
 const searchInput = document.getElementById("searchInput");
 
-const hoverCard = document.getElementById("hoverCard");
-const hoverImage = document.getElementById("hoverImage");
-const hoverLocation = document.getElementById("hoverLocation");
-const hoverSeverity = document.getElementById("hoverSeverity");
-const hoverStatus = document.getElementById("hoverStatus");
-const hoverDescription = document.getElementById("hoverDescription");
-
 function createCard(report)
 {
-    let imageSection = "";
-
-    if(report.status === "Resolved")
-    {
-        imageSection =
-        `
-        <div class="compare-images">
-
-            <img src="${report.beforeImage}" alt="Before">
-
-            <img src="${report.afterImage}" alt="After">
-
-        </div>
-
-        <div class="compare-labels">
-
-            <span>Before Repair</span>
-
-            <span>After Repair</span>
-
-        </div>
-        `;
-    }
-    else
-    {
-        imageSection =
-        `
-        <img
-            src="${report.image}"
-            alt="Road Damage">
-        `;
-    }
-
     return `
     <div class="report-card fade">
 
-        ${imageSection}
-
         <div class="report-content">
 
-            <h3>${report.location}</h3>
+            <h3>${report.zone}</h3>
 
             <p>
-
                 <i class="fa-solid fa-location-dot"></i>
-
-                ${report.location}
-
+                <strong>Zone :</strong> ${report.zone}
             </p>
 
             <p>
-
-                <i class="fa-solid fa-calendar"></i>
-
-                ${report.date}
-
+                <i class="fa-solid fa-road"></i>
+                <strong>Pipeline :</strong> ${report.pipelineId}
             </p>
 
             <p>
-
-                <i class="fa-solid fa-user"></i>
-
-                ${report.officer}
-
+                <i class="fa-solid fa-microchip"></i>
+                <strong>Sensor :</strong> ${report.sensorId}
             </p>
+
+            <div class="info-grid">
+
+                <div class="info-box">
+                    <h5>Water Loss</h5>
+                    <span>${report.waterLoss} L/min</span>
+                </div>
+
+                <div class="info-box">
+                    <h5>Flow Rate</h5>
+                    <span>${report.flowRate} L/min</span>
+                </div>
+
+                <div class="info-box">
+                    <h5>Pressure</h5>
+                    <span>${report.pressure} Bar</span>
+                </div>
+
+                <div class="info-box">
+                    <h5>Sensor Health</h5>
+                    <span>${report.sensorHealth}</span>
+                </div>
+
+            </div>
+
+            <div class="ai-box">
+
+                <h4>
+                    AI Leakage Detection Confidence
+                </h4>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        style="width:${report.aiConfidence}%">
+
+                    </div>
+
+                </div>
+
+                <div class="progress-text">
+
+                    ${report.aiConfidence}% Confidence
+
+                </div>
+
+            </div>
+
+            <br>
 
             <span class="badge ${report.severity.toLowerCase()}">
 
@@ -85,6 +84,14 @@ function createCard(report)
             <span class="status ${report.status.toLowerCase()}">
 
                 ${report.status}
+
+            </span>
+
+            <br>
+
+            <span class="cyber ${report.cyberStatus.toLowerCase()}">
+
+                🛡 ${report.cyberStatus}
 
             </span>
 
@@ -108,163 +115,104 @@ function loadReports(data)
 {
     reportContainer.innerHTML = "";
 
-    if(data.length === 0)
+    if(data.length===0)
     {
-        reportContainer.innerHTML =
-        `
+        reportContainer.innerHTML=`
         <h2 class="empty">
-
-            No Reports Found
-
-        </h2>
-        `;
-
+            No Leakage Records Found
+        </h2>`;
         return;
     }
 
-    data.forEach(report =>
+    data.forEach(report=>
     {
-        reportContainer.innerHTML += createCard(report);
+        reportContainer.innerHTML+=createCard(report);
     });
-
-    addHoverEvents(data);
 
     updateStats(data);
 }
 
-function addHoverEvents(data)
-{
-    const cards =
-    document.querySelectorAll(".report-card");
-
-    cards.forEach((card,index)=>
-    {
-        const report = data[index];
-
-        card.addEventListener("mousemove",function(e)
-        {
-            hoverCard.style.display = "block";
-
-            hoverCard.style.left =
-            e.pageX + 20 + "px";
-
-            hoverCard.style.top =
-            e.pageY - 50 + "px";
-
-            if(report.status === "Resolved")
-            {
-                hoverImage.src =
-                report.afterImage;
-            }
-            else
-            {
-                hoverImage.src =
-                report.image;
-            }
-
-            hoverLocation.innerHTML =
-            report.location;
-
-            hoverSeverity.innerHTML =
-            "<strong>Severity :</strong> " +
-            report.severity;
-
-            hoverStatus.innerHTML =
-            "<strong>Status :</strong> " +
-            report.status;
-
-            hoverDescription.innerHTML =
-            report.description;
-        });
-
-        card.addEventListener("mouseleave",function()
-        {
-            hoverCard.style.display =
-            "none";
-        });
-
-    });
-
-}
 function updateStats(data)
 {
-    document.getElementById("totalReports").innerHTML = data.length;
+    document.getElementById("totalReports").innerHTML=data.length;
 
-    let critical = 0;
-    let pending = 0;
-    let resolved = 0;
+    let critical=0;
+    let active=0;
+    let waterSaved=0;
 
-    data.forEach(report =>
+    data.forEach(report=>
     {
-        if(report.severity === "Critical")
-        {
+        if(report.severity==="Critical")
             critical++;
-        }
 
-        if(report.status === "Pending")
-        {
-            pending++;
-        }
+        if(report.sensorHealth==="Healthy")
+            active++;
 
-        if(report.status === "Resolved")
-        {
-            resolved++;
-        }
+        waterSaved+=report.waterLoss;
     });
 
-    document.getElementById("criticalReports").innerHTML = critical;
-    document.getElementById("pendingReports").innerHTML = pending;
-    document.getElementById("resolvedReports").innerHTML = resolved;
+    document.getElementById("criticalReports").innerHTML=critical;
+
+    document.getElementById("activeSensors").innerHTML=active;
+
+    document.getElementById("waterSaved").innerHTML=waterSaved;
 }
 
-searchInput.addEventListener("keyup", function()
+searchInput.addEventListener("keyup",function()
 {
-    const keyword = this.value.toLowerCase();
+    const keyword=this.value.toLowerCase();
 
-    const filteredReports = reports.filter(report =>
+    const filtered=reports.filter(report=>
     {
-        return report.location.toLowerCase().includes(keyword);
+        return report.zone.toLowerCase().includes(keyword) ||
+
+        report.sensorId.toLowerCase().includes(keyword) ||
+
+        report.pipelineId.toLowerCase().includes(keyword);
     });
 
-    loadReports(filteredReports);
+    loadReports(filtered);
 });
-
 function updateClock()
 {
     const now = new Date();
 
     document.getElementById("lastUpdated").innerHTML =
-    now.toLocaleTimeString("en-IN");
+    now.toLocaleString("en-IN");
 }
 
-setInterval(updateClock, 1000);
+setInterval(updateClock,1000);
 
 const alerts =
 [
-    "AI detected a new pothole near Bachupally X Road.",
-    "Road condition monitoring active across Bachupally.",
-    "Municipal maintenance team dispatched to Bachupally Circle.",
-    "Critical anomaly detected near Bachupally Bus Stop.",
-    "IoT sensors transmitting live road condition data.",
-    "Surface crack identified near Pragathi Nagar Road.",
-    "Road inspection completed near Oakridge School.",
-    "No new anomalies detected in the last 5 minutes."
+    "AI detected abnormal pressure drop in Pipeline PL-101.",
+    "IoT sensors are transmitting real-time pipeline data.",
+    "Critical leakage detected in Bachupally Zone A.",
+    "Water distribution network operating normally.",
+    "Maintenance team dispatched to Pipeline PL-104.",
+    "AI model predicts 98% probability of underground leakage.",
+    "Cyber security scan completed successfully.",
+    "Sensor WL-003 restored communication.",
+    "Pressure stabilized after valve adjustment.",
+    "Real-time monitoring active across all smart zones."
 ];
 
 function updateAlert()
 {
     const random =
-    Math.floor(Math.random() * alerts.length);
+    Math.floor(Math.random()*alerts.length);
 
     document.getElementById("liveAlert").innerHTML =
     alerts[random];
 }
 
-setInterval(updateAlert, 5000);
+setInterval(updateAlert,5000);
 
-document.addEventListener("DOMContentLoaded", function()
+document.addEventListener("DOMContentLoaded",function()
 {
     loadReports(reports);
+
     updateClock();
+
     updateAlert();
 });
