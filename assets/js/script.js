@@ -49,31 +49,9 @@ function createCard(report)
 
             </div>
 
-            <div class="ai-box">
+            
 
-                <h4>
-                    AI Leakage Detection Confidence
-                </h4>
-
-                <div class="progress">
-
-                    <div
-                        class="progress-bar"
-                        style="width:${report.aiConfidence}%">
-
-                    </div>
-
-                </div>
-
-                <div class="progress-text">
-
-                    ${report.aiConfidence}% Confidence
-
-                </div>
-
-            </div>
-
-            <br>
+        
 
             <span class="badge ${report.severity.toLowerCase()}">
 
