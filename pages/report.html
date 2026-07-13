@@ -1,223 +1,236 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>Road Damage Report</title>
+<title>Leakage Details</title>
 
-    <link rel="stylesheet"
-          href="../assets/css/style.css">
+<link rel="stylesheet"
+href="../assets/css/style.css">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
 
-    <nav class="navbar">
+<nav class="navbar">
 
-        <div class="logo">
+<div class="logo">
 
-            <i class="fa-solid fa-shield-halved"></i>
+<i class="fa-solid fa-shield-halved"></i>
 
-            <div>
+<div>
 
-                <h2>Cyber Resilient IoT Platform</h2>
+<h2>Cyber-Resilient IoT Platform</h2>
 
-                <small>Road Damage Monitoring</small>
+<small>Water Leakage Monitoring</small>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </nav>
+</nav>
 
-    <section class="hero">
+<section class="hero">
 
-        <div>
+<div>
 
-            <h1 id="location"></h1>
+<h1 id="zone"></h1>
 
-            <p id="date"></p>
+<p id="time"></p>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
-    <section
-        style="
-        max-width:1200px;
-        margin:30px auto;
-        background:#fff;
-        border-radius:20px;
-        padding:30px;
-        box-shadow:0 8px 20px rgba(0,0,0,.1);
-        ">
+<section
+style="
+max-width:1100px;
+margin:30px auto;
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+">
 
-        <div id="imageContainer"></div>
+<h2>Leakage Information</h2>
 
-        <br>
+<br>
 
-        <h2>Description</h2>
+<p><strong>Pipeline ID :</strong> <span id="pipeline"></span></p>
 
-        <p id="description"></p>
+<br>
 
-        <br>
+<p><strong>Sensor ID :</strong> <span id="sensor"></span></p>
 
-        <h2>Severity</h2>
+<br>
 
-        <span
-            id="severity"
-            class="badge">
-        </span>
+<p><strong>Severity :</strong>
 
-        <br><br>
+<span id="severity" class="badge"></span>
 
-        <h2>Status</h2>
+</p>
 
-        <p id="status"></p>
+<br>
 
-        <br>
+<p><strong>Status :</strong>
 
-        <h2>Assigned Officer</h2>
+<span id="status"></span>
 
-        <p id="officer"></p>
+</p>
 
-        <br>
+<br>
 
-        <div id="completionSection">
+<p><strong>AI Confidence :</strong>
 
-            <h2>Completion Date</h2>
+<span id="confidence"></span> %
 
-            <p id="completion"></p>
+</p>
 
-            <br>
+<br>
 
-        </div>
+<p><strong>Water Loss :</strong>
 
-        <h2>Location</h2>
+<span id="loss"></span> L/min
 
-        <iframe
-            id="map"
-            width="100%"
-            height="450"
-            style="border:0;border-radius:15px;"
-            loading="lazy">
-        </iframe>
+</p>
 
-        <br><br>
+<br>
 
-        <a
-            href="../index.html"
-            class="view-btn">
+<p><strong>Flow Rate :</strong>
 
-            <i class="fa-solid fa-arrow-left"></i>
+<span id="flow"></span> L/min
 
-            Back to Dashboard
+</p>
 
-        </a>
-
-    </section>
-
-    <script src="../data/reports.js"></script>
-
-    <script>
-
-        const params = new URLSearchParams(window.location.search);
-
-        const id = Number(params.get("id"));
-
-        const report = reports.find(r => r.id === id);
-
-        if(report)
-        {
-            document.getElementById("location").innerHTML =
-            report.location;
-
-            document.getElementById("date").innerHTML =
-            "Reported On : " + report.date;
-
-            document.getElementById("description").innerHTML =
-            report.description;
-
-            document.getElementById("status").innerHTML =
-            report.status;
-
-            document.getElementById("officer").innerHTML =
-            report.officer;
-
-            const severity =
-            document.getElementById("severity");
-
-            severity.innerHTML =
-            report.severity;
-
-            severity.classList.add(
-            report.severity.toLowerCase());
-
-            if(report.status === "Resolved")
-            {
-                document.getElementById("completion").innerHTML =
-                report.completion;
-
-                document.getElementById("imageContainer").innerHTML =
-                `
-                <h2>Before Repair</h2>
-
-                <img
-                    src="../${report.beforeImage}"
-                    style="
-                    width:100%;
-                    height:420px;
-                    object-fit:cover;
-                    border-radius:15px;">
-
-                <br><br>
-
-                <h2>After Repair</h2>
-
-                <img
-                    src="../${report.afterImage}"
-                    style="
-                    width:100%;
-                    height:420px;
-                    object-fit:cover;
-                    border-radius:15px;">
-                `;
-            }
-            else
-            {
-                document.getElementById("completionSection").style.display =
-                "none";
-
-                document.getElementById("imageContainer").innerHTML =
-                `
-                <img
-                    src="../${report.image}"
-                    style="
-                    width:100%;
-                    height:500px;
-                    object-fit:cover;
-                    border-radius:15px;">
-                `;
-            }
-
-            document.getElementById("map").src =
-            "https://maps.google.com/maps?q=" +
-            report.lat +
-            "," +
-            report.lng +
-            "&z=17&output=embed";
-        }
-
-    </script>
+<br>
+
+<p><strong>Pressure :</strong>
+
+<span id="pressure"></span> Bar
+
+</p>
+
+<br>
+
+<p><strong>Sensor Health :</strong>
+
+<span id="health"></span>
+
+</p>
+
+<br>
+
+<p><strong>Cyber Security :</strong>
+
+<span id="cyber"></span>
+
+</p>
+
+<br>
+
+<h2>AI Analysis</h2>
+
+<p id="description"></p>
+
+<br>
+
+<h2>Location</h2>
+
+<iframe
+id="map"
+width="100%"
+height="450"
+style="border:0;border-radius:15px;"
+loading="lazy">
+
+</iframe>
+
+<br><br>
+
+<a
+href="../index.html"
+class="view-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back to Dashboard
+
+</a>
+
+</section>
+
+<script src="../data/reports.js"></script>
+
+<script>
+
+const params=new URLSearchParams(window.location.search);
+
+const id=Number(params.get("id"));
+
+const report=reports.find(r=>r.id===id);
+
+if(report)
+{
+
+document.getElementById("zone").innerHTML=report.zone;
+
+document.getElementById("time").innerHTML=
+"Detected : "+report.detectionTime;
+
+document.getElementById("pipeline").innerHTML=
+report.pipelineId;
+
+document.getElementById("sensor").innerHTML=
+report.sensorId;
+
+document.getElementById("status").innerHTML=
+report.status;
+
+document.getElementById("confidence").innerHTML=
+report.aiConfidence;
+
+document.getElementById("loss").innerHTML=
+report.waterLoss;
+
+document.getElementById("flow").innerHTML=
+report.flowRate;
+
+document.getElementById("pressure").innerHTML=
+report.pressure;
+
+document.getElementById("health").innerHTML=
+report.sensorHealth;
+
+document.getElementById("cyber").innerHTML=
+report.cyberStatus;
+
+document.getElementById("description").innerHTML=
+report.description;
+
+const severity=document.getElementById("severity");
+
+severity.innerHTML=report.severity;
+
+severity.classList.add(report.severity.toLowerCase());
+
+document.getElementById("map").src=
+"https://maps.google.com/maps?q="+
+report.lat+
+","+
+report.lng+
+"&z=17&output=embed";
+
+}
+
+</script>
 
 </body>
 
