@@ -1,5 +1,43 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# VS Code
 .vscode/
 
+# JetBrains IDEs
+.idea/
+
+# Node modules (if added later)
 node_modules/
 
-.DS_Store
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated files
+*.swp
+
+# Build folders
+dist/
+build/
+
+# Cache
+.cache/
+
+# Python
+__pycache__/
+*.pyc
+
+# Coverage
+coverage/
