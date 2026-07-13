@@ -88,9 +88,6 @@ box-shadow:0 10px 25px rgba(0,0,0,.1);
 
 <br>
 
-
-
-
 <p><strong>Water Loss :</strong>
 
 <span id="loss"></span> L/min
@@ -163,7 +160,7 @@ Back to Dashboard
 </section>
 
 <script src="../data/reports.js"></script>
-
+    
 <script>
 
 const params=new URLSearchParams(window.location.search);
@@ -189,9 +186,6 @@ report.sensorId;
 document.getElementById("status").innerHTML=
 report.status;
 
-document.getElementById("confidence").innerHTML=
-report.aiConfidence;
-
 document.getElementById("loss").innerHTML=
 report.waterLoss;
 
@@ -216,12 +210,8 @@ severity.innerHTML=report.severity;
 
 severity.classList.add(report.severity.toLowerCase());
 
-document.getElementById("map").src=
-"https://maps.google.com/maps?q="+
-report.lat+
-","+
-report.lng+
-"&z=17&output=embed";
+document.getElementById("map").src =
+`https://www.google.com/maps?q=${report.lat},${report.lng}&output=embed`;
 
 }
 
